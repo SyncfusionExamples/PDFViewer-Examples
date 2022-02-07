@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<button onclick="save()">SaveDocument</button>
+<ejs-pdfviewer id="pdfviewer" style="height:600px" serviceUrl="/api/PdfViewer" documentPath="PDF_Succinctly.pdf"></ejs-pdfviewer>
+
+<script>
+    function save() {
+        var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+        pdfViewer.serverActionSettings.download = "SaveDocument";
+        pdfViewer.download();
+        pdfViewer.serverActionSettings.download = "Download";
+    }
+</script>
