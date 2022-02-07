@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<button onclick="openFromUrl()">Open from URL</button>
+
+<ejs-pdfviewer id="pdfviewer" style="height:600px" serviceUrl="/api/PdfViewer" documentLoad="documentLoad" ></ejs-pdfviewer>
+
+<script>
+    function documentLoad() {
+        var pdfviewer = document.getElementById('pdfviewer').ej2_instances[0];
+        pdfviewer.serverActionSettings.load = 'Load';
+    }
+
+    function openFromUrl() {
+        var pdfviewer = document.getElementById('pdfviewer').ej2_instances[0];
+        pdfviewer.serverActionSettings.load = 'OpenFromUrl';
+        pdfviewer.load('http://www.syncfusion.com/downloads/support/directtrac/general/pd/HTTP_Succinctly-1719682472.pdf', null);
+    }
+</script>
